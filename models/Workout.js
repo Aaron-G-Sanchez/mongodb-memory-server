@@ -10,6 +10,7 @@ const Workout = new Schema(
       type: String,
       required: true
     }
+    // TODO: Look into setting the parent reference as well.
     // creator: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
