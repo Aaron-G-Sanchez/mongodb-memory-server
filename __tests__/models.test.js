@@ -57,6 +57,9 @@ describe('User/Workout relation', () => {
     expect(user).toBeInstanceOf(User)
     expect(user.workouts).toBeInstanceOf(Array)
     expect(user.workouts.length).toBe(1)
+    expect(user.workouts).toEqual(
+      expect.arrayContaining([expect.objectContaining(workout.toJSON())])
+    )
 
     // The commented out code below works the same as the code above.
     // const userWithWorkout = await User.findOne({ name: 'Chravis' }).populate(
