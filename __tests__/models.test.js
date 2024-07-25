@@ -1,5 +1,5 @@
 const { describe, test, expect, beforeAll, afterAll } = require('@jest/globals')
-const User = require('../models')
+const { User, Workout } = require('../models')
 const { dbConnect, dbDisconnect } = require('../util')
 
 beforeAll(async () => {
@@ -17,6 +17,20 @@ describe('User model', () => {
       email: 'chravis@gmail.com'
     })
     console.log(user)
+    expect(user).toBeInstanceOf(User)
     expect(user.name).toBeDefined()
+  })
+})
+
+describe('Workout model', () => {
+  test('should create a Workout model', async () => {
+    const workout = await Workout.create({
+      level: 'Beginner',
+      type: 'Full Body'
+    })
+
+    console.log(workout)
+    expect(workout).toBeInstanceOf(Workout)
+    expect(workout.level).toBeDefined()
   })
 })

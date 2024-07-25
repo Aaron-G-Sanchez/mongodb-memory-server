@@ -9,7 +9,8 @@ const User = new Schema(
     email: {
       type: String,
       required: true
-    }
+    },
+    workouts: [{ type: Schema.Types.ObjectId, ref: 'Workout' }]
   },
   { timestamps: true }
 )
